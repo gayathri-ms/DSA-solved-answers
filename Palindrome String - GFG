@@ -1,0 +1,17 @@
+class Solution{
+public:	
+	
+	
+	int isPlaindrome(string S)
+	{
+	    // Your code goes here
+	    int i,j;
+	    for(i=0,j=S.size()-1;i<=j;i++,j--)
+	    {
+	        if(S[i]!=S[j])
+	            return 0;
+	    }
+	    return 1;
+	}
+
+};
