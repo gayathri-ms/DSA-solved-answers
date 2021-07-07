@@ -1,0 +1,19 @@
+class Solution
+{
+  public:
+    long long int equalPairs (string s)
+    {
+    	//code here.
+    	unordered_map <char,int> m;
+    	for(int i=0;i<s.size();i++)
+    	{
+    	    m[s[i]]++;
+    	}
+    	int count=0;
+    	for(auto pair: m)
+    	{
+    	    count+=(pow((pair.second),2));
+    	}
+    	return count;
+    }
+};
