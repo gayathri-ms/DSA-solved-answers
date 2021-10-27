@@ -1,0 +1,37 @@
+class Solution{
+  public:
+    int max(int a , int b)
+    {
+        return ( (a>b) ? a : b );
+    }
+  
+    int cutRod(int price[], int n) {
+        //code here
+        
+        int t[n+1][n+1];
+        int i=0,j=0;
+        for(;j<(n+1);j++)
+        {
+            if(i==0)
+                t[i][j]=0;
+        }
+        for(j=0,i=1;i<(n+1);i++)
+        {
+            if(j==0)
+                t[i][j]=0;
+        }
+        
+        for(i=1;i<(n+1);i++)
+        {
+            for(j=1;j<(n+1);j++)
+            {
+                if(i<=j)
+                    t[i][j]=max(t[i-1][j],price[i-1]+t[i][j-i]);
+                else
+                    t[i][j]=t[i-1][j];
+            }
+        }
+        
+        return t[n][n];
+    }
+};
