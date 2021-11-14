@@ -9,6 +9,22 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+//Faster Approach
+
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if(!p && !q)
+            return true;
+        if((!p && q) || (!q && p))
+            return false;
+        return ((p->val==q->val) && (isSameTree(p->left,q->left)) && (isSameTree(p->right,q->right)));
+    }
+};
+
+//first approach tried by me
+
 class Solution {
 public:
     bool ans=false;
