@@ -51,5 +51,5 @@ int Solution::solve(TreeNode* A, int B) {
             q.pop();
         }
     }
-    return dis;
+    return dis-1;
 }
