@@ -11,18 +11,18 @@
  */
 class Solution {
 public:
-    int sum=0;
-    void check(TreeNode* root)
+    void check(TreeNode* root,int &sum)
     {
         if(!root)
             return;
-        check(root->right);
+        check(root->right,sum);
         sum+=root->val;
         root->val=sum;
-        check(root->left);
+        check(root->left,sum);
     }
     TreeNode* convertBST(TreeNode* root) {
-        check(root);
+        int sum=0;
+        check(root,sum);
         return root;
     }
 };
